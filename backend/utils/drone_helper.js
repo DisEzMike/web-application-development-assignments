@@ -56,5 +56,5 @@ export const createDroneLog = async (logData) => {
 			Authorization: `Bearer ${process.env.DRONE_LOG_TOKEN}`,
 		},
 	});
-	return resp.data;
+	return resp;
 };
