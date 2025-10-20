@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const parseObject = (obj) => {
+export const parseObject = (obj) => {
 	if (!obj) return null;
 
 	return {
@@ -14,7 +14,7 @@ const parseObject = (obj) => {
 	};
 };
 
-const parseLogObject = (obj) => {
+export const parseLogObject = (obj) => {
 	if (!obj) return null;
 
 	return {
@@ -23,15 +23,29 @@ const parseLogObject = (obj) => {
 		created: obj.created,
 		country: obj.country,
 		celsius: obj.celsius,
-	}
-}
+	};
+};
 
 export const getDroneConfig = async (droneId) => {
-	const resp = await axios.get(process.env.DRONE_LOG_URL);
+	const resp = await axios.get(process.env.DRONE_CONFIG_URL);
 	const data = resp.data.data;
 
 	const drone = data.find((cfg) => cfg.drone_id === parseInt(droneId));
-	return parseObject(drone);
+	return drone;
 };
 
+export const getDroneLogsById = async (droneId, page = 1) => {
+	const resp = await axios.get(
+		`${process.env.DRONE_LOG_URL}?sort=-created,id&filter=(drone_id=${droneId})&perPage=12&page=${page}`,
+		{
+			headers: {
+				Authorization: `Bearer ${process.env.DRONE_LOG_TOKEN}`,
+			},
+		}
+	);
+	const data = resp.data;
+	const items = data.items.map((item) => parseLogObject(item)) || [];
 
+	data.items = items;
+	return data;
+};
