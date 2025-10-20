@@ -7,8 +7,12 @@ router.get('/:droneId', async (req, res) => {
 	const { droneId } = req.params;
 	const { page } = req.query;
 
-	const droneLogs = await getDroneLogsById(droneId, parseInt(page) || 1);
-	return res.json(droneLogs);
+	try {
+		const droneLogs = await getDroneLogsById(droneId, parseInt(page) || 1);
+		return res.json(droneLogs);
+	} catch (e) {
+		return res.status(500).json({ message: 'Failed to fetch drone logs' });
+	}
 });
 
 router.post('/', async (req, res) => {
@@ -26,12 +30,10 @@ router.post('/', async (req, res) => {
 
 	try {
 		const resp = await createDroneLog(payload);
-		return res
-			.status(201)
-			.json({
-				message: 'Log entry created successfully',
-				data: resp.data,
-			});
+		return res.status(201).json({
+			message: 'Log entry created successfully',
+			data: resp.data,
+		});
 	} catch (e) {
 		return res.status(500).json({ message: 'Failed to create log entry' });
 	}
