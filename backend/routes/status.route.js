@@ -1,12 +1,12 @@
 import { Router } from 'express';
-import { getDroneCondition } from '../utils/drone_helper.js';
+import { getDroneConfig } from '../utils/drone_helper.js';
 
 export const router = Router();
 
 router.get('/:droneId', async (req, res) => {
 	const { droneId } = req.params;
 
-	const drone = await getDroneCondition(droneId);
+	const drone = await getDroneConfig(droneId);
 	if (drone) {
 		const condition = drone.condition;
 		return res.json({ condition });
