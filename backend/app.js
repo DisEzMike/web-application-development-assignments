@@ -2,8 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import bodyParser from 'body-parser';
 import morgan from 'morgan';
-import dotenv from 'dotenv';
-dotenv.config();
+import 'dotenv/config';
 
 import { router as configRoutes } from './routes/config.route.js';
 import { router as statusRoutes } from './routes/status.route.js';
