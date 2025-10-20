@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export const parseObject = (obj) => {
+const parseObject = (obj) => {
 	if (!obj) return null;
 
 	return {
@@ -14,7 +14,7 @@ export const parseObject = (obj) => {
 	};
 };
 
-export const parseLogObject = (obj) => {
+const parseLogObject = (obj) => {
 	if (!obj) return null;
 
 	return {
@@ -31,7 +31,7 @@ export const getDroneConfig = async (droneId) => {
 	const data = resp.data.data;
 
 	const drone = data.find((cfg) => cfg.drone_id === parseInt(droneId));
-	return drone;
+	return parseObject(drone);
 };
 
 export const getDroneLogsById = async (droneId, page = 1) => {
