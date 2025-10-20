@@ -11,7 +11,15 @@ router.get('/:droneId', async (req, res) => {
 		const droneLogs = await getDroneLogsById(droneId, parseInt(page) || 1);
 		return res.json(droneLogs);
 	} catch (e) {
-		return res.status(500).json({ message: 'Failed to fetch drone logs' });
+		if (e instanceof Error) {
+			return res.status(400).json({ message: e.message });
+		} else if (e instanceof AxiosError) {
+			return res
+				.status(e.response?.status || 500)
+				.json({ message: e.message });
+		} else {
+			return res.status(500).json({ message: 'Unknown error' });
+		}
 	}
 });
 
@@ -35,6 +43,14 @@ router.post('/', async (req, res) => {
 			data: resp.data,
 		});
 	} catch (e) {
-		return res.status(500).json({ message: 'Failed to create log entry' });
+		if (e instanceof Error) {
+			return res.status(400).json({ message: e.message });
+		} else if (e instanceof AxiosError) {
+			return res
+				.status(e.response?.status || 500)
+				.json({ message: e.message });
+		} else {
+			return res.status(500).json({ message: 'Unknown error' });
+		}
 	}
 });
