@@ -12,7 +12,7 @@ import { router as logRoutes } from './routes/log.route.js';
 const app = express();
 
 const corsOptions = {
-	origin: ['http://localhost:3000']
+	origin: ['http://localhost:3000', 'http://localhost:5173']
 };
 
 app.use(morgan('dev'));
