@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { getDroneLogsById, createDroneLog } from '../utils/drone_helper.js';
+import { getDroneLogsById, createDroneLog } from '../services/drone_service.js';
 
 export const router = Router();
 
