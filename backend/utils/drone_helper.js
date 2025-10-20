@@ -49,3 +49,12 @@ export const getDroneLogsById = async (droneId, page = 1) => {
 	data.items = items;
 	return data;
 };
+
+export const createDroneLog = async (logData) => {
+	const resp = await axios.post(process.env.DRONE_LOG_URL, logData, {
+		headers: {
+			Authorization: `Bearer ${process.env.DRONE_LOG_TOKEN}`,
+		},
+	});
+	return resp.data;
+};
