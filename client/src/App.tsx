@@ -1,35 +1,16 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { LogsCard, MainCard } from './components/main_card';
 
 function App() {
-  const [count, setCount] = useState(0)
+	const droneId: string = import.meta.env.VITE_DRONE_ID;
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+	return (
+		<>
+			<div className="flex flex-col xl:p-10 p-5 items-center min-h-screen bg-gray-100 gap-5">
+				<MainCard droneId={droneId} />
+				<LogsCard droneId={droneId} />
+			</div>
+		</>
+	);
 }
 
-export default App
+export default App;
