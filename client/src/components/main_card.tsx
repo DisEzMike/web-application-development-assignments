@@ -215,7 +215,8 @@ export const LogsCard = ({ droneId }: { droneId: string }) => {
 							type="number"
 							name="celsius"
 							id="celsius"
-							className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+							disabled={!droneConfig || loading}
+							className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 disabled:cursor-not-allowed disabled:opacity-50"
 							placeholder="Enter temperature in Celsius"
 							required
 						/>
@@ -224,6 +225,7 @@ export const LogsCard = ({ droneId }: { droneId: string }) => {
 				<div className="md:flex-1/20 flex:2">
 					<button
 						type="submit"
+						disabled={!droneConfig || loading}
 						className="text-gray-900 w-full justify-center focus:ring-2 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center disabled:opacity-50 disabled:cursor-not-allowed bg-gray-100 hover:bg-gray-200"
 					>
 						{addIcon()} &nbsp;Add Log
