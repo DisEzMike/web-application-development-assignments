@@ -117,7 +117,6 @@ export const LogsCard = ({ droneId }: { droneId: string }) => {
 				setDroneConfig(JSON.parse(storedConfig));
 				clearInterval(x);
 			}
-			
 		}, 500);
 	}, [droneId, page]);
 
@@ -134,7 +133,7 @@ export const LogsCard = ({ droneId }: { droneId: string }) => {
 
 		try {
 			console.log('Fetching drone logs for ID:', droneId);
-			const res = await AppService.getDroneLogs(droneId, page)
+			const res = await AppService.getDroneLogs(droneId, page);
 			setDroneLogs(res.data);
 			setLoading(false);
 		} catch (e) {
@@ -154,12 +153,8 @@ export const LogsCard = ({ droneId }: { droneId: string }) => {
 		const celsius = formData.get('celsius');
 		if (!celsius) return;
 
-		const droneConfig = localStorage.getItem('droneConfig');
-		if (!droneConfig) return;
-		const parsedConfig = JSON.parse(droneConfig);
-
 		const payload = {
-			...parsedConfig,
+			...droneConfig,
 			celsius: Number(celsius),
 		};
 
@@ -204,7 +199,10 @@ export const LogsCard = ({ droneId }: { droneId: string }) => {
 					</button>
 				</div>
 			</div>
-			<form onSubmit={onSubmit} className='flex flex-row items-end mt-2 mb-2 gap-4'>
+			<form
+				onSubmit={onSubmit}
+				className="flex flex-row items-end mt-2 mb-2 gap-4"
+			>
 				<div className="flex-10">
 					<div>
 						<label
