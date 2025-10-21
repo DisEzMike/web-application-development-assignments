@@ -12,7 +12,11 @@ import { router as logRoutes } from './routes/log.route.js';
 const app = express();
 
 const corsOptions = {
-	origin: ['http://localhost:3000', 'http://localhost:5173']
+	origin: [
+		'http://localhost:3000',
+		'http://localhost:5173',
+		'https://66011352-client.vercel.app',
+	],
 };
 
 app.use(morgan('dev'));
