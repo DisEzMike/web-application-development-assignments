@@ -5,7 +5,7 @@ function App() {
 
 	return (
 		<>
-			<div className="flex flex-col xl:p-10 p-5 items-center min-h-screen bg-gray-100 gap-5">
+			<div className="flex flex-col xl:p-8 p-5 items-center min-h-screen bg-gray-100 gap-5">
 				<MainCard droneId={droneId} />
 				<LogsCard droneId={droneId} />
 			</div>
