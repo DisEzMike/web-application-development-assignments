@@ -1,5 +1,5 @@
 # Webapp Assignments
-
+โปรเจคนี้อยู่ภายใต้วิชา Web Application Development จัดทำโดย 66011352 นายณัชพล สหัสสเนตร
 ## DEMO
 - [backend](https://66011352-api.vercel.app)
 - [client](https://66011352-client.vercel.app)
@@ -75,7 +75,7 @@ yarn install
 - เพิ่มบันทึกอุณหภูมิใหม่ผ่านฟอร์มในหน้าเว็บ
 - รีเฟรชข้อมูลโดรนและบันทึกด้วยปุ่มสั่งงาน
 
-## API ที่มีให้บริการ (Backend)
+## API (Backend)
 - `GET /` ตรวจสอบสถานะของ API
 - `GET /configs/:droneId` ดึงค่ากำหนดของโดรน
 - `GET /status/:droneId` ดึงเฉพาะสถานะ (`condition`) ของโดรน
