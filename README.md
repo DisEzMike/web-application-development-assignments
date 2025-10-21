@@ -1,6 +1,8 @@
 # Webapp Assignments
 
-## [DEMO](https://66011352-client.vercel.app)
+## DEMO
+- [backend](https://66011352-api.vercel.app)
+- [client](https://66011352-client.vercel.app)
 
 ## โครงสร้างไดเรกทอรี
 - `backend/` โค้ดฝั่งเซิร์ฟเวอร์ Express.js
