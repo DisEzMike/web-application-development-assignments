@@ -1,6 +1,6 @@
 export const Table = ({ data }: { data: any }) => {
 	return (
-		<div className="relative overflow-x-auto shadow-md sm:rounded-lg mt-5">
+		<div className="relative overflow-x-auto overflow-y-scroll h-120 shadow-md sm:rounded-lg mt-5">
 			<table className="w-full text-sm text-left rtl:text-right text-gray-500">
 				<thead className="text-xs text-gray-700 uppercase bg-gray-50">
 					<tr>
@@ -70,7 +70,7 @@ export const Table = ({ data }: { data: any }) => {
 
 export const LoadingTable = () => {
 	return (
-		<div className="relative overflow-x-auto shadow-md sm:rounded-lg mt-5">
+		<div className="relative overflow-x-auto h-120 shadow-md sm:rounded-lg mt-5">
 			<table className="w-full text-sm text-left rtl:text-right text-gray-500">
 				<thead className="text-xs text-gray-700 uppercase bg-gray-50">
 					<tr>
@@ -95,7 +95,7 @@ export const LoadingTable = () => {
 					</tr>
 				</thead>
 				<tbody>
-					{[...Array(12)].map((_, idx) => (
+					{[...Array(8)].map((_, idx) => (
 						<tr
 							key={idx}
 							className="bg-white border-b border-gray-200 animate-pulse"
