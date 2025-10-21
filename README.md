@@ -4,6 +4,8 @@
 - [backend](https://66011352-api.vercel.app)
 - [client](https://66011352-client.vercel.app)
 
+![client](./assets/client.jpg)
+
 ## โครงสร้างไดเรกทอรี
 - `backend/` โค้ดฝั่งเซิร์ฟเวอร์ Express.js
 - `client/` โค้ดฝั่งผู้ใช้ React + Vite
